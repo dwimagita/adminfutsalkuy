@@ -20,6 +20,8 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
 
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+
 </head>
 
 <body id="page-top">
@@ -38,43 +40,29 @@
     </form>
 
     <!-- Navbar -->
-    <ul class="navbar-nav ml-auto ml-md-0">
-      <li class="nav-item dropdown no-arrow mx-1">
-        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-bell fa-fw"></i>
-          <span class="badge badge-danger">9+</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown no-arrow mx-1">
-        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-envelope fa-fw"></i>
-          <span class="badge badge-danger">7</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user-circle fa-fw"></i>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="#">Settings</a>
-          <a class="dropdown-item" href="#">Activity Log</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
-        </div>
-      </li>
-    </ul>
+    <li class="nav-item dropdown no-arrow mx-1">
+      <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-envelope fa-fw"></i>
+        <span class="badge badge-danger">7</span>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+    </li>
+    <li class="nav-item dropdown no-arrow">
+      <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-user-circle fa-fw"></i>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+        <a class="dropdown-item" href="#" id="AdminLoginNameTambah">Admin Login Name</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+      </div>
+    </li>
+  </ul>
 
   </nav>
 
@@ -88,39 +76,23 @@
           <span>Dashboard</span>
         </a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Pages</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <h6 class="dropdown-header">Login Screens:</h6>
-          <a class="dropdown-item" href="login.html">Login</a>
-          <a class="dropdown-item" href="register.html">Register</a>
-          <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-          <div class="dropdown-divider"></div>
-          <h6 class="dropdown-header">Other Pages:</h6>
-          <a class="dropdown-item" href="404.html">404 Page</a>
-          <a class="dropdown-item" href="blank.html">Blank Page</a>
-        </div>
-      </li>
-      
-      <li class="nav-item active">
-        <a class="nav-link" href="AddNewMitra.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tambah Mitra</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Mitra Futsal Kuy</span></a>
-      </li>
-       <li class="nav-item active">
-        <a class="nav-link" href="DataUser.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>User Futsal Kuy</span></a>
-      </li>
-    </ul>
+     
+      <li class="nav-item">
+          <a class="nav-link" href="AddNewMitra.html">
+            <i class="fas fa-fw fa-plus-square"></i>
+            <span>Tambah Mitra</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="DataMitra.html">
+            <i class="fas fa-fw fa-list-ul"></i>
+            <span>Mitra Futsal Kuy</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="DataUser.html">
+            <i class="fas fa-fw fa-list-ul"></i>
+            <span>User Futsal Kuy</span></a>
+        </li>
+      </ul>
 
     <div id="content-wrapper">
 
@@ -135,84 +107,72 @@
         </ol>
 
         <!-- DataTables Example -->
+
+    <div class="form-group row">
+            <label for="example-email-input" class="col-2 col-form-label">Email</label>
+            <div class="col-10">
+              <input class="form-control" type="email" placeholder="Email Address" value="" id="example-email-input">
+            </div>
+          </div>
+          <div class="form-group row">
+              <label for="example-password-input" class="col-2 col-form-label">Password</label>
+              <div class="col-10">
+                <input class="form-control" type="password" placeholder="Password" value="" id="example-password-input">
+              </div>
+            </div>
       <div class="form-group row">
-  <label for="example-text-input" class="col-2 col-form-label">Text</label>
+  <label for="example-text-input" class="col-2 col-form-label">Nama Lapangan</label>
   <div class="col-10">
-    <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
+    <input class="form-control" type="text" placeholder="Nama Lapangan" value="" id="example-text-nama-lapangan">
   </div>
 </div>
 <div class="form-group row">
-  <label for="example-search-input" class="col-2 col-form-label">Search</label>
+    <label for="example-text-input" class="col-2 col-form-label">Alamat</label>
+    <div class="col-10">
+      <input class="form-control" type="text" placeholder="Alamat" value="Alamat" id="example-text-alamat">
+    </div>
+  </div>
+
+<div class="form-group row">
+  <label for="example-tel-input" class="col-2 col-form-label">No.Telepon</label>
   <div class="col-10">
-    <input class="form-control" type="search" value="How do I shoot web" id="example-search-input">
+    <input class="form-control" type="tel" placeholder="(ex:0832412421242)" value="" id="example-tel-input">
+  </div>
+</div>
+
+<div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">Jenis Lantai</label>
+    <div class="col-10">
+      <input class="form-control" type="text" placeholder="Jenis Lantai (ex: Vinyl/rumput sintetik)" value="" id="example-text-jenis-lantai">
+    </div>
+  </div>
+
+<div class="form-group row">
+  <label for="example-number-input" class="col-2 col-form-label">jumlah lapangan</label>
+  <div class="col-10">
+    <input class="form-control" type="number" placeholder="(ex : 3)" value="" id="example-number-input">
   </div>
 </div>
 <div class="form-group row">
-  <label for="example-email-input" class="col-2 col-form-label">Email</label>
+  <label for="example-time-input" class="col-2 col-form-label">Jam Buka</label>
   <div class="col-10">
-    <input class="form-control" type="email" value="bootstrap@example.com" id="example-email-input">
+    <input class="form-control" type="time" placeholder="waktu buka" value="" id="example-jam-buka">
   </div>
 </div>
 <div class="form-group row">
-  <label for="example-url-input" class="col-2 col-form-label">URL</label>
-  <div class="col-10">
-    <input class="form-control" type="url" value="https://getbootstrap.com" id="example-url-input">
+    <label for="example-time-input" class="col-2 col-form-label">Jam tutup</label>
+    <div class="col-10">
+      <input class="form-control" type="time" placeholder="waktu tutup" value="13:45:00" id="example-jam-tutup">
+    </div>
   </div>
-</div>
-<div class="form-group row">
-  <label for="example-tel-input" class="col-2 col-form-label">Telephone</label>
-  <div class="col-10">
-    <input class="form-control" type="tel" value="1-(555)-555-5555" id="example-tel-input">
-  </div>
-</div>
-<div class="form-group row">
-  <label for="example-password-input" class="col-2 col-form-label">Password</label>
-  <div class="col-10">
-    <input class="form-control" type="password" value="hunter2" id="example-password-input">
-  </div>
-</div>
-<div class="form-group row">
-  <label for="example-number-input" class="col-2 col-form-label">Number</label>
-  <div class="col-10">
-    <input class="form-control" type="number" value="42" id="example-number-input">
-  </div>
-</div>
-<div class="form-group row">
-  <label for="example-datetime-local-input" class="col-2 col-form-label">Date and time</label>
-  <div class="col-10">
-    <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
-  </div>
-</div>
-<div class="form-group row">
-  <label for="example-date-input" class="col-2 col-form-label">Date</label>
-  <div class="col-10">
-    <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
-  </div>
-</div>
-<div class="form-group row">
-  <label for="example-month-input" class="col-2 col-form-label">Month</label>
-  <div class="col-10">
-    <input class="form-control" type="month" value="2011-08" id="example-month-input">
-  </div>
-</div>
-<div class="form-group row">
-  <label for="example-week-input" class="col-2 col-form-label">Week</label>
-  <div class="col-10">
-    <input class="form-control" type="week" value="2011-W33" id="example-week-input">
-  </div>
-</div>
-<div class="form-group row">
-  <label for="example-time-input" class="col-2 col-form-label">Time</label>
-  <div class="col-10">
-    <input class="form-control" type="time" value="13:45:00" id="example-time-input">
-  </div>
-</div>
-<div class="form-group row">
-  <label for="example-color-input" class="col-2 col-form-label">Color</label>
-  <div class="col-10">
-    <input class="form-control" type="color" value="#563d7c" id="example-color-input">
-  </div>
-</div>
+  <div class="form-group row">
+      <label for="example-text-input" class="col-2 col-form-label">Fasilitas</label>
+      <div class="col-10">
+        <input class="form-control" type="text" placeholder="Fasilitas Lapangan" value="" id="example-text-alamat">
+      </div>
+    </div>
+
+    <button type="button" class="btn btn-primary" id="button-daftarkan-lapangan">Daftar Lapangan</button>
       <!-- /.container-fluid -->
 
       <!-- Sticky Footer -->
@@ -248,7 +208,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <a class="btn btn-primary" onclick="logOut()">Logout</a>
         </div>
       </div>
     </div>
@@ -270,6 +230,11 @@
 
   <!-- Demo scripts for this page-->
   <script src="js/demo/datatables-demo.js"></script>
+
+  <script src="fireBase.js"></script>
+
+  <script src="index.js"></script>
+
 
 </body>
 
