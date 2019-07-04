@@ -6,20 +6,23 @@ var indexApp = {};
     console.log('user ', user)
     if (user != null) {
       // User is signed in.
-
-      var user = firebase.auth().currentUser;
+      
       uid = user.uid;
       var email_id = user.email;
-      document.getElementById("namalogin").innerHTML = "SELAMAT DATANG : " + email_id;
-      document.getElementById("AdminLoginNameindex").innerHTML = email_id;
-      document.getElementById("AdminLoginNameTambah").innerHTML = email_id;
-      document.getElementById("AdminLoginNameDataMitra").innerHTML = email_id;
-      document.getElementById("AdminLoginNameDataUser").innerHTML = email_id;
+             
+    document.getElementById("AdminLoginNameindex").innerHTML= email_id;
+    document.getElementById("namalogin").innerHTML= "Selamat Datang : " + email_id;
+    document.getElementById("AdminLoginNametambah").innerHTML= email_id;
 
-
-
-
-      console.log("masuk index")      
+      console.log(user); // It shows the Firebase user
+      console.log(firebase.auth().user); // It is still undefined
+      user.getIdToken().then(function(idToken) {  // <------ Check this line
+         console.log(idToken); // It shows the Firebase token now
+      
+        
+      
+      console.log("masuk index")     
+      }) 
     } else {
       // console.log("redirect")
       // No user is signed in.
@@ -29,17 +32,16 @@ var indexApp = {};
 
 })()
 
-function logOut(){
-  console.log('masuk logout')
-  firebase.auth().signOut().then(function() {
-    // Sign-out successful.
-    window.location.href = "login.html";
-  }).catch(function(error) {
-    // An error happened.
-  });
-  
-}
-
+  function logOut(){
+    console.log('masuk logout')
+    firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+      window.location.href = "login.html";
+    }).catch(function(error) {
+      // An error happened.
+    });
+    
+  }
 // function listAllUsers(nextPageToken) {
 //   // List batch of users, 1000 at a time.
 //   admin.auth().listUsers(1000, nextPageToken)

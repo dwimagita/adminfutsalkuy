@@ -1,7 +1,7 @@
 var app_fireBase = {};
-(function(){  
+(function () {
 
-   var firebaseConfig = {
+  var firebaseConfig = {
     apiKey: "AIzaSyCkCx5ymtvIQ9TuCRffmnQfbGHpvKUBXqc",
     authDomain: "futsalkuy-c832c.firebaseapp.com",
     databaseURL: "https://futsalkuy-c832c.firebaseio.com",
@@ -9,10 +9,9 @@ var app_fireBase = {};
     storageBucket: "futsalkuy-c832c.appspot.com",
     messagingSenderId: "688039074950",
     appId: "1:688039074950:web:a86b0f54ddfff145"
-   };
-   // Initialize Firebase
-   firebase.initializeApp(firebaseConfig);
-   app_fireBase = firebase;
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  app_fireBase = firebase;
 
-  })()
-  
+})()
